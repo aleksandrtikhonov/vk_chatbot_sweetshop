@@ -1,5 +1,6 @@
 from vk_bot.keyboards.service import products_menu_service, ProductsMenuService
-from vk_bot.models import ProductsCategory, Products
+from vk_bot.models.categories import ProductsCategory
+from vk_bot.models.product import Products
 
 
 class KeyBoard:

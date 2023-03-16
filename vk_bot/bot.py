@@ -1,11 +1,12 @@
 import dataclasses
 import json
 
-from django.conf import settings
 from httpx import Client
 
 from .const import api_vk_get_long_poll_server_url
 from .keyboards.main_menu import key_board_manager
+from .models.config import BotConfigs
+from .models.types import BotConfigsEnum
 from .types import MessageTypes
 
 
@@ -75,14 +76,9 @@ class Dispatcher:
         return payload.get("photo_link")
 
     def check_updates_keyboard(self) -> None:
-        with open(settings.KEYBOARD_STATUS_FILE_PATH, 'r+') as file:
-            config = json.load(file)
-            if not config["status"]:
-                self.menu = key_board_manager.rebuild_keboard()
-                config["status"] = True
-            file.seek(0)
-            file.truncate()
-            json.dump(config, file, indent=2)
+        if BotConfigs.objects.get_config_value(BotConfigsEnum.new_keyboard_exists):
+            self.menu = key_board_manager.rebuild_keboard()
+            BotConfigs.objects.set_config_value(BotConfigsEnum.new_keyboard_exists, False)
 
 
 class Poller:

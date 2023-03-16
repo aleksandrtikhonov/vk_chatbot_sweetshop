@@ -1,7 +1,9 @@
 from dataclasses import dataclass
 from typing import Any
 
-from vk_bot.models import Products, ProductsCategory, ProductId
+from vk_bot.models.categories import ProductsCategory
+from vk_bot.models.product import Products
+from vk_bot.models.types import ProductId
 from vk_bot.types import NextLevel, Button
 
 

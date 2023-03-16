@@ -70,6 +70,20 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-enumchoicefield"
+version = "3.0.1"
+description = "A choice field for Django using native Python Enums"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-enumchoicefield-3.0.1.tar.gz", hash = "sha256:812a19fcf750918961e907b27a5fac597eced52d0a123b88128a53a494929ea7"},
+]
+
+[package.dependencies]
+Django = ">=2.0"
+
+[[package]]
 name = "h11"
 version = "0.14.0"
 description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
@@ -327,4 +341,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "25e1e27b8a7bfeacbadfbf865b30192a6f47edcf093220f84fb234af2798aa41"
+content-hash = "1e7a2f819da873ad523e41f9677fc7ead2aa11554f438effe52a2779ed352a01"

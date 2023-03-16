@@ -12,6 +12,7 @@ django = "^4.1.7"
 httpx = "^0.23.3"
 pyyaml = "^6.0"
 pydantic = {extras = ["dotenv"], version = "^1.10.6"}
+django-enumchoicefield = "^3.0.1"
 
 
 [build-system]

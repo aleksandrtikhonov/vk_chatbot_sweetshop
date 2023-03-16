@@ -92,7 +92,3 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-
-# Bot
-KEYBOARD_STATUS_FILE_PATH = Path("vk_bot/keyboards/update_status.json")

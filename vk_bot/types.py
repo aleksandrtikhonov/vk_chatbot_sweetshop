@@ -1,7 +1,7 @@
 from enum import StrEnum
 from typing import NewType, Union
 
-from vk_bot.models import ProductsCategory
+from vk_bot.models.categories import ProductsCategory
 
 
 class MessageTypes(StrEnum):

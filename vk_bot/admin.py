@@ -1,9 +1,9 @@
-import json
-
-from django.conf import settings
 from django.contrib.admin import ModelAdmin, register
 
-from .models import Products, ProductsCategory
+from vk_bot.models.categories import ProductsCategory
+from vk_bot.models.config import BotConfigs
+from vk_bot.models.product import Products
+from vk_bot.models.types import BotConfigsEnum
 
 
 class ShowCaseAdmin(ModelAdmin):
@@ -21,9 +21,4 @@ class ProductAdmin(ShowCaseAdmin):
 class ProductsCategoryAdmin(ShowCaseAdmin):
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
-        with open(settings.KEYBOARD_STATUS_FILE_PATH, 'r+') as file:
-            config = json.load(file)
-            config["status"] = False
-            file.seek(0)
-            file.truncate()
-            json.dump(config, file, indent=2)
+        BotConfigs.objects.set_config_value(BotConfigsEnum.new_keyboard_exists, True)
